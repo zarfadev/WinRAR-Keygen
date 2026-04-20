@@ -72,15 +72,24 @@ document.addEventListener('alpine:init', () => {
                 // Generate the raw license string
                 const keyData = generateWinRARLicense(this.userName, this.licenseType);
 
-                // Use Data URI instead of Blob to prevent UUID filenames on file:// protocol
+                // Use Uint8Array and Blob to prevent double-encoding of UTF-8 characters by the browser
+                const bytes = new Uint8Array(keyData.length);
+                for (let i = 0; i < keyData.length; i++) {
+                    bytes[i] = keyData.charCodeAt(i);
+                }
+                const blob = new Blob([bytes], { type: "application/octet-stream" });
+                
                 const link = document.createElement("a");
-                link.setAttribute("href", "data:application/octet-stream;charset=utf-8," + encodeURIComponent(keyData));
+                link.setAttribute("href", URL.createObjectURL(blob));
                 link.setAttribute("download", "rarreg.key");
 
                 // Programmatically trigger download
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
+                
+                // Keep memory clean
+                setTimeout(() => URL.revokeObjectURL(link.href), 100);
 
                 this.showToast(this.t.successMsg);
             } catch (err) {

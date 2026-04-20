@@ -1,4 +1,23 @@
-window.generateWinRARLicense = function(username, licenseType) {
+window.generateWinRARLicense = function(raw_username, raw_licenseType) {
+    function encodeForWinRAR(str) {
+        var hasNonAscii = false;
+        for (var i = 0; i < str.length; i++) {
+            if (str.charCodeAt(i) > 127) { hasNonAscii = true; break; }
+        }
+        if (hasNonAscii && !str.startsWith("utf8:")) {
+            str = "utf8:" + str;
+        }
+        var bytes = new TextEncoder().encode(str);
+        var res = "";
+        for (var i = 0; i < bytes.length; i++) {
+            res += String.fromCharCode(bytes[i]);
+        }
+        return res;
+    }
+    
+    var username = encodeForWinRAR(raw_username);
+    var licenseType = encodeForWinRAR(raw_licenseType);
+
     let $ = function f() {
         let $ = new Uint32Array(32767), e = 1;
         $[0] = 1;
