@@ -321,17 +321,18 @@
                                 class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5 ml-1"
                                 x-text="t.editionLabel">License Type</label>
                             <div class="relative">
-                                <div
-                                    class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
+                                <select id="licenseType" x-model="licenseType" required
+                                    class="input-modern block w-full pl-5 pr-10 py-3.5 rounded-xl outline-none appearance-none cursor-pointer">
+                                    <option value="Single PC usage license">Single PC usage license</option>
+                                    <option value="Local Site License">Local Site License</option>
+                                    <option value="Unlimited Company License">Unlimited Company License</option>
+                                    <option value="1000 PC usage license">1000 PC usage license</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-slate-400">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
-                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                     </svg>
                                 </div>
-                                <input type="text" id="licenseType" x-model="licenseType"
-                                    :placeholder="t.editionPlaceholder" required
-                                    class="input-modern block w-full pl-11 pr-4 py-3.5 rounded-xl outline-none" />
                             </div>
                         </div>
 
