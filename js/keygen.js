@@ -223,7 +223,7 @@ window.generateWinRARLicense = function(raw_username, raw_licenseType) {
         }
         for (var a = -1, x = 0; x < $.length; x++)
             a = a >>> 8 ^ n[255 & (a ^ $.charCodeAt(x))];
-        return (-1 ^ a) >>> 0
+        return a >>> 0
     }(licenseType + username + a_val)).toString(10).padStart(10, "0");
 
     m_val = "RAR registration data\r\n" + username + "\r\n" + licenseType + "\r\nUID=" + (C_val = t(n_val.substring(24, 32)) + x_val.substring(0, 4)) + "\r\n" + a_val.substring(0, 54) + "\r\n" + a_val.substring(54, 108) + "\r\n" + a_val.substring(108, 162) + "\r\n" + a_val.substring(162, 216) + "\r\n" + a_val.substring(216, 270) + "\r\n" + a_val.substring(270, 324) + "\r\n" + a_val.substring(324, 378) + "\r\n";
