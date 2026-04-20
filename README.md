@@ -37,7 +37,7 @@ All processes run **100% locally** in your browser, ensuring maximum privacy and
 
 ### 1️⃣ The Key Generator
 
-1. **Access the Generator**: Open the [WinRAR Key Generator](https://winrar-keygen.vercel.app/) web application.
+1. **Access the Generator**: Open the [WinRAR Key Generator](https://winrar-keygen-rho.vercel.app) web application.
 2. **Setup your License**:
    - Enter your desired **Username**.
    - Input your custom **License Type**.
